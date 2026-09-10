@@ -1,8 +1,22 @@
 ---
-title: "Rote-Bete-Risotto mit Gorgonzola und Walnüssen"
+title: "Rote-Bete-Risotto mit Gorgonzola & Walnüssen"
 version: "1.0"
-category: "Italienisch"
-tags: [vegetarisch, italienisch, Risotto, Rote Bete, Gorgonzola, Walnüsse]
+status: "erste Version"
+cuisine:
+  - Italienisch
+  - Vegetarisch
+tags:
+  - vegetarisch
+  - risotto
+  - rote-bete
+  - gorgonzola
+  - walnüsse
+  - one-pan
+servings: 2
+prep_time: "15 Minuten"
+cook_time: "30 Minuten"
+total_time: "45 Minuten"
+description: "Cremiges Risotto mit erdiger Roter Bete, würzigem Gorgonzola und gerösteten Walnüssen."
 ---
 
 # Rote-Bete-Risotto mit Gorgonzola und Walnüssen

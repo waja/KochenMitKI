@@ -1,8 +1,21 @@
 ---
 title: "Indisches Sellerie-Masala"
 version: "1.0"
-category: "Indisch"
-tags: [vegetarisch, indisch, Sellerie, Masala, Kokosmilch]
+status: "erste Version"
+cuisine:
+  - Indisch
+  - Vegetarisch
+tags:
+  - vegetarisch
+  - indisch
+  - sellerie
+  - masala
+  - kokosmilch
+servings: "2–3"
+prep_time: "15 Minuten"
+cook_time: "30 Minuten"
+total_time: "45 Minuten"
+description: "Cremiges Gemüse-Curry mit Sellerie, Pilzen, Lauch, Kokosmilch und Garam Masala."
 ---
 
 # Indisches Sellerie-Masala
