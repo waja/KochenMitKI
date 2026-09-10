@@ -1,3 +1,27 @@
+---
+title: "Orientalische Auberginen-Paprika-Pfanne mit Räuchertofu, Halloumi & Zitronen-Couscous"
+version: "1.1"
+status: "überarbeitete Version"
+cuisine:
+  - Levante
+  - Nordafrikanisch
+  - Vegetarisch
+tags:
+  - vegetarisch
+  - aubergine
+  - paprika
+  - räuchertofu
+  - halloumi
+  - couscous
+  - tahini
+  - ras-el-hanout
+servings: 2
+prep_time: "15 Minuten"
+cook_time: "30 Minuten"
+total_time: "45 Minuten"
+description: "Kräftig gewürzte Auberginen-Paprika-Pfanne mit knusprigem Räuchertofu, Halloumi und Zitronen-Tahini-Sauce."
+---
+
 # Orientalische Auberginen-Paprika-Pfanne mit Räuchertofu, Halloumi & Zitronen-Couscous
 
 **Kategorie:** Levante / Nordafrika  

@@ -1,8 +1,25 @@
 ---
 title: "Geröstete Brokkoli-Fenchel-Sellerie-Pfanne mit Halloumi"
 version: "1.0"
-category: "Levante"
-tags: [vegetarisch, Levante, mediterran, Brokkoli, Fenchel, Sellerie, Halloumi, Zitrone, Tahini]
+status: "erste Version"
+cuisine:
+  - Levante
+  - Mediterran
+  - Vegetarisch
+tags:
+  - vegetarisch
+  - levante
+  - brokkoli
+  - fenchel
+  - sellerie
+  - halloumi
+  - bulgur
+  - tahini
+servings: 2
+prep_time: "15 Minuten"
+cook_time: "30 Minuten"
+total_time: "45 Minuten"
+description: "Geröstetes Gemüse mit Bulgur, gebräuntem Halloumi und Zitronen-Tahini-Sauce."
 ---
 
 # Geröstete Brokkoli-Fenchel-Sellerie-Pfanne mit Halloumi

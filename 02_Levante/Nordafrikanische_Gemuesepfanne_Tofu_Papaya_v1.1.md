@@ -1,3 +1,26 @@
+---
+title: "Nordafrikanische Gemüsepfanne mit knusprigem Tofu & Papaya-Salsa"
+version: "1.1"
+status: "überarbeitete Version"
+cuisine:
+  - Nordafrikanisch
+  - Levante
+  - Vegetarisch
+tags:
+  - vegetarisch
+  - nordafrikanisch
+  - gemüsepfanne
+  - räuchertofu
+  - papaya
+  - ras-el-hanout
+  - couscous
+servings: 2
+prep_time: "20 Minuten"
+cook_time: "30 Minuten"
+total_time: "50 Minuten"
+description: "Würzige Gemüsepfanne mit besonders knusprigem Räuchertofu, Couscous und frischer Papaya-Salsa."
+---
+
 # Nordafrikanische Gemüsepfanne mit knusprigem Tofu & Papaya-Salsa
 
 **Kategorie:** Levante / Nordafrika  

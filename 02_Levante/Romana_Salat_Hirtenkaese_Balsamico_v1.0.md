@@ -1,3 +1,25 @@
+---
+title: "Knackiger Romana-Salat mit Hirtenkäse und Balsamico-Dressing"
+version: "1.0"
+status: "erste Version"
+cuisine:
+  - Levante
+  - Mediterran
+  - Vegetarisch
+tags:
+  - vegetarisch
+  - salat
+  - romana
+  - hirtenkäse
+  - balsamico
+  - gemüse
+servings: "2 als Beilage / 1 als Hauptsalat"
+prep_time: "15 Minuten"
+cook_time: "0 Minuten"
+total_time: "15 Minuten"
+description: "Knackiger Gemüsesalat mit Hirtenkäse und cremigem Balsamico-Senf-Dressing."
+---
+
 # Knackiger Romana-Salat mit Hirtenkäse und Balsamico-Dressing
 
 **Kategorie:** Levante / Mediterran  

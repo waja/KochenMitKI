@@ -1,8 +1,23 @@
 ---
 title: "Pak Choi & Aubergine mit Ingwer"
 version: "1.0"
-category: "Asiatisch"
-tags: [vegetarisch, asiatisch, Pak Choi, Aubergine, Ingwer, Basmatireis]
+status: "erste Version"
+cuisine:
+  - Asiatisch
+  - Vegetarisch
+tags:
+  - vegetarisch
+  - asiatisch
+  - pak-choi
+  - aubergine
+  - ingwer
+  - sojasauce
+  - basmatireis
+servings: 2
+prep_time: "15 Minuten"
+cook_time: "25 Minuten"
+total_time: "40 Minuten"
+description: "Würzige Gemüsepfanne mit Pak Choi, Aubergine, Zucchini, Ingwer und Sojasauce."
 ---
 
 # Pak Choi & Aubergine mit Ingwer

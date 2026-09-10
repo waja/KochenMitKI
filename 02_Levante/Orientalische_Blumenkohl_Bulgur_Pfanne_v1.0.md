@@ -1,8 +1,25 @@
 ---
 title: "Orientalische Blumenkohl-Bulgur-Pfanne"
 version: "1.0"
-category: "Levante"
-tags: [vegetarisch, orientalisch, Levante, Blumenkohl, Bulgur, Kichererbsen, Datteln, Tahini]
+status: "erste Version"
+cuisine:
+  - Levante
+  - Orientalisch
+  - Vegetarisch
+tags:
+  - vegetarisch
+  - orientalisch
+  - levante
+  - blumenkohl
+  - bulgur
+  - kichererbsen
+  - datteln
+  - tahini
+servings: 2
+prep_time: "15 Minuten"
+cook_time: "25 Minuten"
+total_time: "40 Minuten"
+description: "Gerösteter Blumenkohl mit Bulgur, Kichererbsen, Datteln, Feta und Tahini."
 ---
 
 # Orientalische Blumenkohl-Bulgur-Pfanne

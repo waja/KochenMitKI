@@ -1,8 +1,23 @@
 ---
 title: "Grüne Shakshuka"
 version: "1.0"
-category: "Indisch"
-tags: [vegetarisch, Shakshuka, orientalisch, Ei, Spinat]
+status: "erste Version"
+cuisine:
+  - Indisch
+  - Orientalisch
+  - Vegetarisch
+tags:
+  - vegetarisch
+  - shakshuka
+  - zucchini
+  - spinat
+  - ei
+  - feta
+servings: 2
+prep_time: "10 Minuten"
+cook_time: "20 Minuten"
+total_time: "30 Minuten"
+description: "Grüne Gemüsepfanne mit Ei, Feta und orientalischen Gewürzen."
 ---
 
 # Grüne Shakshuka
