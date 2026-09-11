@@ -48,5 +48,4 @@ Mit Feta, Kräutern, Chili und schwarzem Pfeffer servieren.
 
 ## Bewertung
 
-Geschmack: ___ / 5 · Konsistenz: ___ / 5 · Wiederkochen: ___ / 5
-
+Geschmack: _**/ 5 · Konsistenz:**_ / 5 · Wiederkochen: ___ / 5

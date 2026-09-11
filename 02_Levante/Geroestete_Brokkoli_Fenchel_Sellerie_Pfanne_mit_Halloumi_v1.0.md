@@ -71,5 +71,4 @@ description: "Geröstetes Gemüse mit Bulgur, gebräuntem Halloumi und Zitronen-
 
 ## Bewertung
 
-Geschmack: ___ / 5 · Konsistenz: ___ / 5 · Wiederkochen: ___ / 5
-
+Geschmack: _**/ 5 · Konsistenz:**_ / 5 · Wiederkochen: ___ / 5

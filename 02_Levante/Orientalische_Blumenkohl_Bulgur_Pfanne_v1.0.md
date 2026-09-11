@@ -65,5 +65,4 @@ description: "Gerösteter Blumenkohl mit Bulgur, Kichererbsen, Datteln, Feta und
 
 ## Bewertung
 
-Geschmack: ___ / 5 · Konsistenz: ___ / 5 · Wiederkochen: ___ / 5
-
+Geschmack: _**/ 5 · Konsistenz:**_ / 5 · Wiederkochen: ___ / 5
