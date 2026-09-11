@@ -22,6 +22,7 @@ total_time: "45 Minuten"
 description: "Geröstetes Gemüse mit Bulgur, gebräuntem Halloumi und Zitronen-Tahini-Sauce."
 ---
 
+<!-- markdownlint-disable-next-line MD025 -->
 # Geröstete Brokkoli-Fenchel-Sellerie-Pfanne mit Halloumi
 
 **2 große Portionen · Vorbereitung: 15 Minuten · Kochzeit: ca. 30 Minuten · Gesamt: ca. 45 Minuten**

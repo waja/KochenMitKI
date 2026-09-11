@@ -18,6 +18,7 @@ total_time: "45 Minuten"
 description: "Cremiges Gemüse-Curry mit Sellerie, Pilzen, Lauch, Kokosmilch und Garam Masala."
 ---
 
+<!-- markdownlint-disable-next-line MD025 -->
 # Indisches Sellerie-Masala
 
 **2–3 Portionen · Vorbereitung: ca. 15 Minuten · Kochzeit: ca. 30 Minuten · Gesamt: ca. 45 Minuten**

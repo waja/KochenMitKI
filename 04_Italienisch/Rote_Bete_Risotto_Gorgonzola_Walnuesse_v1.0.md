@@ -19,6 +19,7 @@ total_time: "45 Minuten"
 description: "Cremiges Risotto mit erdiger Roter Bete, würzigem Gorgonzola und gerösteten Walnüssen."
 ---
 
+<!-- markdownlint-disable-next-line MD025 -->
 # Rote-Bete-Risotto mit Gorgonzola und Walnüssen
 
 **2–3 Portionen · Vorbereitung: ca. 15 Minuten · Kochzeit: ca. 25 Minuten · Gesamt: ca. 40 Minuten**

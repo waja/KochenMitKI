@@ -22,6 +22,7 @@ total_time: "45 Minuten"
 description: "Kräftig gewürzte Auberginen-Paprika-Pfanne mit knusprigem Räuchertofu, Halloumi und Zitronen-Tahini-Sauce."
 ---
 
+<!-- markdownlint-disable-next-line MD025 -->
 # Orientalische Auberginen-Paprika-Pfanne mit Räuchertofu, Halloumi & Zitronen-Couscous
 
 **Kategorie:** Levante / Nordafrika  

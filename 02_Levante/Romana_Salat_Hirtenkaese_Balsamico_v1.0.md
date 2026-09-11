@@ -20,6 +20,7 @@ total_time: "15 Minuten"
 description: "Knackiger Gemüsesalat mit Hirtenkäse und cremigem Balsamico-Senf-Dressing."
 ---
 
+<!-- markdownlint-disable-next-line MD025 -->
 # Knackiger Romana-Salat mit Hirtenkäse und Balsamico-Dressing
 
 **Kategorie:** Levante / Mediterran  

@@ -21,6 +21,7 @@ total_time: "50 Minuten"
 description: "Würzige Gemüsepfanne mit besonders knusprigem Räuchertofu, Couscous und frischer Papaya-Salsa."
 ---
 
+<!-- markdownlint-disable-next-line MD025 -->
 # Nordafrikanische Gemüsepfanne mit knusprigem Tofu & Papaya-Salsa
 
 **Kategorie:** Levante / Nordafrika  
