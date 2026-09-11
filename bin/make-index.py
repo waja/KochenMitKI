@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 """Generate and update the cookbook README and recipe index."""
 
-from pathlib import Path
 import re
-
+from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 
