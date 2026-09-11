@@ -33,6 +33,6 @@ jobs:
         env:
           DEFAULT_BRANCH: master
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#          VALIDATE_GITHUB_ACTIONS_ZIZMOR: false
-#          VALIDATE_BIOME_FORMAT: false
-#          VALIDATE_BIOME_LINT: false
+          VALIDATE_GITHUB_ACTIONS_ZIZMOR: false
+          VALIDATE_BIOME_FORMAT: false
+          VALIDATE_BIOME_LINT: false
