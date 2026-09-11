@@ -76,11 +76,7 @@ def read_frontmatter(path: Path):
         return None
 
     title = title_match.group(1).strip()
-    description = (
-        description_match.group(1).strip()
-        if description_match
-        else ""
-    )
+    description = description_match.group(1).strip() if description_match else ""
 
     # Einfache Anführungszeichen entfernen.
     if len(title) >= 2 and title[0] == title[-1] and title[0] in "\"'":
@@ -191,14 +187,10 @@ def replace_generated_block(
         )
 
     before = text[:start]
-    after = text[end + len(end_marker):]
+    after = text[end + len(end_marker) :]
 
     replacement = (
-        start_marker
-        + "\n\n"
-        + generated_content.rstrip()
-        + "\n\n"
-        + end_marker
+        start_marker + "\n\n" + generated_content.rstrip() + "\n\n" + end_marker
     )
 
     return before + replacement + after
