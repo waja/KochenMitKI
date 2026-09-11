@@ -22,7 +22,6 @@ description: "Würzige Gemüsepfanne mit besonders knusprigem Räuchertofu, Cous
 ---
 
 <!-- markdownlint-disable-next-line MD025 -->
-
 # Nordafrikanische Gemüsepfanne mit knusprigem Tofu & Papaya-Salsa
 
 **Kategorie:** Levante / Nordafrika  

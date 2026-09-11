@@ -23,7 +23,6 @@ description: "Kräftig gewürzte Auberginen-Paprika-Pfanne mit knusprigem Räuch
 ---
 
 <!-- markdownlint-disable-next-line MD025 -->
-
 # Orientalische Auberginen-Paprika-Pfanne mit Räuchertofu, Halloumi & Zitronen-Couscous
 
 **Kategorie:** Levante / Nordafrika  
