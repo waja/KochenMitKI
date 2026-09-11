@@ -23,6 +23,7 @@ description: "Grüne Gemüsepfanne mit Ei, Feta und orientalischen Gewürzen."
 <!-- markdownlint-disable-next-line MD025 -->
 # Grüne Shakshuka
 
+<!-- markdownlint-disable-next-line MD036 -->
 **2 Portionen · Vorbereitung: ca. 10 Minuten · Kochzeit: ca. 20 Minuten · Gesamt: ca. 30 Minuten**
 
 ## Zutaten
