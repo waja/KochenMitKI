@@ -1,9 +1,6 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:recommended",
-    ":dependencyDashboard"
-  ],
-  "baseBranches": ["development"],
-  "reviewers": ["waja"]
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"extends": ["config:recommended", ":dependencyDashboard"],
+	"baseBranches": ["development"],
+	"reviewers": ["waja"]
 }
