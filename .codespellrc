@@ -1,2 +1,2 @@
 [codespell]
-skip = *.md
+skip = */*.md,index.md,README.md,*.pdf
