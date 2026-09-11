@@ -181,7 +181,7 @@ def replace_generated_block(
 
     if end < start:
         raise RuntimeError(
-            "Reihenfolge der Marker ist falsch:\n" # codespell:ignore ist
+            "Reihenfolge der Marker ist falsch:\n"  # codespell:ignore ist
             f"  START: {start_marker}\n"
             f"  END:   {end_marker}"
         )
