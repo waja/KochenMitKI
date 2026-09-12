@@ -23,9 +23,11 @@ description: "Gerösteter Blumenkohl mit Bulgur, Kichererbsen, Datteln, Feta und
 ---
 
 <!-- markdownlint-disable-next-line MD025 -->
+
 # Orientalische Blumenkohl-Bulgur-Pfanne
 
 <!-- markdownlint-disable-next-line MD036 -->
+
 **2 Portionen · Vorbereitung: 15 Minuten · Kochzeit: ca. 25 Minuten · Gesamt: ca. 40 Minuten**
 
 ## Zutaten
@@ -67,4 +69,4 @@ description: "Gerösteter Blumenkohl mit Bulgur, Kichererbsen, Datteln, Feta und
 
 ## Bewertung
 
-Geschmack: _**/ 5 · Konsistenz:**_ / 5 · Wiederkochen: ___ / 5
+Geschmack: _**/ 5 · Konsistenz:**_ / 5 · Wiederkochen: \_\_\_ / 5

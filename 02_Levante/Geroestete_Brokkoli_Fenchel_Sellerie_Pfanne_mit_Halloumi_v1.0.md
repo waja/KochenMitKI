@@ -23,9 +23,11 @@ description: "Geröstetes Gemüse mit Bulgur, gebräuntem Halloumi und Zitronen-
 ---
 
 <!-- markdownlint-disable-next-line MD025 -->
+
 # Geröstete Brokkoli-Fenchel-Sellerie-Pfanne mit Halloumi
 
 <!-- markdownlint-disable-next-line MD036 -->
+
 **2 große Portionen · Vorbereitung: 15 Minuten · Kochzeit: ca. 30 Minuten · Gesamt: ca. 45 Minuten**
 
 ## Zutaten
@@ -73,4 +75,4 @@ description: "Geröstetes Gemüse mit Bulgur, gebräuntem Halloumi und Zitronen-
 
 ## Bewertung
 
-Geschmack: _**/ 5 · Konsistenz:**_ / 5 · Wiederkochen: ___ / 5
+Geschmack: _**/ 5 · Konsistenz:**_ / 5 · Wiederkochen: \_\_\_ / 5
