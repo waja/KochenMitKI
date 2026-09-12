@@ -22,9 +22,12 @@ description: "Cremiges Gemüse-Curry mit Sellerie, Pilzen, Lauch, Kokosmilch und
 
 # Indisches Sellerie-Masala
 
-<!-- markdownlint-disable-next-line MD036 -->
-
-**2–3 Portionen · Vorbereitung: ca. 15 Minuten · Kochzeit: ca. 30 Minuten · Gesamt: ca. 45 Minuten**
+**Kategorie:** Indisch  
+**Version:** 1.0  
+**Portionen:** 2–3 Portionen  
+**Vorbereitung:** ca. 15 Min.  
+**Kochzeit:** ca. 30 Min.  
+**Gesamt:** ca. 45 Min.
 
 ## Zutaten
 
@@ -47,15 +50,21 @@ description: "Cremiges Gemüse-Curry mit Sellerie, Pilzen, Lauch, Kokosmilch und
 - optional Koriandergrün
 - dazu Basmatireis
 
-## Zubereitung
+## Vorbereitung
 
 Zwiebel fein würfeln. Sellerie schälen und in kleine Würfel schneiden. Lauch in Ringe, Pilze in Scheiben und Zucchini in mundgerechte Stücke schneiden. Knoblauch und Ingwer fein hacken.
+
+## Zubereitung
 
 Zwiebel in Öl 4–5 Minuten braten. An den Rand schieben und Sellerie kräftig anbraten. Lauch und Pilze zugeben und weitere 4–5 Minuten braten.
 
 Knoblauch, Ingwer und Gewürze kurz mitrösten. Kokosmilch angießen, aufkochen und 15–20 Minuten sanft köcheln lassen. Zucchini erst in der zweiten Hälfte zugeben, damit sie Biss behält.
 
 Mit Salz und Chili abschmecken. Mit Basmatireis und optional Koriander servieren.
+
+## Varianten
+
+## Hinweise
 
 ## Bewertung
 

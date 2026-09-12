@@ -24,9 +24,12 @@ description: "Würzige Gemüsepfanne mit Pak Choi, Aubergine, Zucchini, Ingwer u
 
 # Pak Choi & Aubergine mit Ingwer
 
-<!-- markdownlint-disable-next-line MD036 -->
-
-**2 Portionen · Vorbereitung: ca. 15 Minuten · Kochzeit: ca. 25 Minuten · Gesamt: ca. 40 Minuten**
+**Kategorie:** Asiatisch  
+**Version:** 1.0  
+**Portionen:** 2 Portionen  
+**Vorbereitung:** ca. 15 Min.  
+**Kochzeit:** ca. 25 Min.  
+**Gesamt:** ca. 40 Min.
 
 ## Zutaten
 
@@ -44,17 +47,25 @@ description: "Würzige Gemüsepfanne mit Pak Choi, Aubergine, Zucchini, Ingwer u
 - 150–180 g Basmatireis
 - optional Limettensaft statt bzw. zusätzlich zum Essig
 
-## Zubereitung
+## Vorbereitung
 
 Pak Choi längs halbieren oder bei sehr kleinen Exemplaren vierteln. Die weißen Teile vom Grün trennen. Aubergine und Zucchini in mundgerechte Stücke schneiden. Ingwer und Knoblauch fein hacken.
+
+Sojasauce, Ahornsirup bzw. Agavendicksaft und Spritessig verrühren.
+
+## Zubereitung
 
 Reis kochen. Aubergine in heißem Öl kräftig anbraten, bis sie Farbe bekommt und weich wird. Zucchini zugeben und einige Minuten mitbraten.
 
 Ingwer, Knoblauch und Chili kurz mitbraten. Die weißen Pak-Choi-Teile zugeben und 2–3 Minuten braten. Danach das Grün dazugeben und nur kurz zusammenfallen lassen.
 
-Sojasauce, Ahornsirup bzw. Agavendicksaft und wenig Spritessig verrühren und über das Gemüse geben. Kurz einkochen lassen. Optional mit Sesamöl und Limettensaft abschließen.
+Die vorbereitete Sauce über das Gemüse geben. Kurz einkochen lassen. Optional mit Sesamöl und Limettensaft abschließen.
 
 Mit Basmatireis servieren.
+
+## Varianten
+
+## Hinweise
 
 ## Bewertung
 

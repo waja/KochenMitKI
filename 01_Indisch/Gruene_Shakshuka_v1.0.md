@@ -24,9 +24,12 @@ description: "Grüne Gemüsepfanne mit Ei, Feta und orientalischen Gewürzen."
 
 # Grüne Shakshuka
 
-<!-- markdownlint-disable-next-line MD036 -->
-
-**2 Portionen · Vorbereitung: ca. 10 Minuten · Kochzeit: ca. 20 Minuten · Gesamt: ca. 30 Minuten**
+**Kategorie:** Indisch / Orientalisch  
+**Version:** 1.0  
+**Portionen:** 2 Portionen  
+**Vorbereitung:** ca. 10 Min.  
+**Kochzeit:** ca. 20 Min.  
+**Gesamt:** ca. 30 Min.
 
 ## Zutaten
 
@@ -42,13 +45,21 @@ description: "Grüne Gemüsepfanne mit Ei, Feta und orientalischen Gewürzen."
 - Salz und schwarzer Pfeffer
 - optional Koriander oder Petersilie
 
+## Vorbereitung
+
+Zwiebel fein würfeln. Knoblauch fein hacken. Das grüne Gemüse vorbereiten und bei Bedarf in mundgerechte Stücke schneiden.
+
 ## Zubereitung
 
-Zwiebel fein würfeln und in Olivenöl glasig braten. Knoblauch und Gewürze kurz mitrösten. Grünes Gemüse zugeben und bei mittlerer Hitze garen, bis es weich ist, aber Struktur behält.
+Zwiebel in Olivenöl glasig braten. Knoblauch und Gewürze kurz mitrösten. Grünes Gemüse zugeben und bei mittlerer Hitze garen, bis es weich ist, aber Struktur behält.
 
 Vier Mulden in das Gemüse drücken und Eier hineinschlagen. Mit Deckel 5–8 Minuten garen, bis das Eiweiß gestockt und das Eigelb noch cremig ist.
 
 Mit Feta, Kräutern, Chili und schwarzem Pfeffer servieren.
+
+## Varianten
+
+## Hinweise
 
 ## Bewertung
 

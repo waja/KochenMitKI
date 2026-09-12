@@ -23,9 +23,12 @@ description: "Cremiges Risotto mit erdiger Roter Bete, würzigem Gorgonzola und 
 
 # Rote-Bete-Risotto mit Gorgonzola und Walnüssen
 
-<!-- markdownlint-disable-next-line MD036 -->
-
-**2–3 Portionen · Vorbereitung: ca. 15 Minuten · Kochzeit: ca. 25 Minuten · Gesamt: ca. 40 Minuten**
+**Kategorie:** Italienisch  
+**Version:** 1.0  
+**Portionen:** 2 Portionen  
+**Vorbereitung:** ca. 15 Min.  
+**Kochzeit:** ca. 30 Min.  
+**Gesamt:** ca. 45 Min.
 
 ## Zutaten
 
@@ -41,9 +44,13 @@ description: "Cremiges Risotto mit erdiger Roter Bete, würzigem Gorgonzola und 
 - Salz und schwarzer Pfeffer
 - optional etwas Zitronensaft
 
+## Vorbereitung
+
+Rote Bete schälen und klein würfeln. Zwiebel fein würfeln, Knoblauch hacken. Walnüsse grob hacken.
+
 ## Zubereitung
 
-Rote Bete schälen und klein würfeln. Zwiebel fein würfeln, Knoblauch hacken. Walnüsse grob hacken und trocken rösten.
+Walnüsse trocken rösten und beiseitestellen.
 
 Zwiebel in Butter oder Öl glasig braten. Knoblauch und Reis kurz mitrösten. Optional mit Weißwein ablöschen.
 
@@ -51,9 +58,11 @@ Heiße Brühe nach und nach zugießen und regelmäßig rühren. Nach etwa 10 Min
 
 Gorgonzola unterheben und das Risotto mit Salz und Pfeffer abschmecken. Bei Bedarf etwas Zitronensaft für Frische verwenden. Mit gerösteten Walnüssen servieren.
 
-## Hinweis
+## Varianten
 
-Weiche Rote Bete eignet sich besonders gut für dieses Gericht, da sie direkt verarbeitet werden kann.
+## Hinweise
+
+- Weiche Rote Bete eignet sich besonders gut für dieses Gericht, da sie direkt verarbeitet werden kann.
 
 ## Bewertung
 

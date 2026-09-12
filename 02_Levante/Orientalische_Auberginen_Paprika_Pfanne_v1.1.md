@@ -29,6 +29,8 @@ description: "Kräftig gewürzte Auberginen-Paprika-Pfanne mit knusprigem Räuch
 **Kategorie:** Levante / Nordafrika  
 **Version:** 1.1  
 **Portionen:** 2 große Portionen  
+**Vorbereitung:** ca. 15 Min.  
+**Kochzeit:** ca. 30 Min.  
 **Gesamt:** ca. 45 Min.
 
 ## Zutaten
@@ -123,6 +125,8 @@ Den knusprigen Tofu unter die Gemüsepfanne heben und nur noch 1–2 Minuten mit
 
 Couscous auf die Teller verteilen, Gemüsepfanne daraufgeben und Halloumi daraufsetzen. Zitronen-Tahini-Sauce darüberträufeln und mit Koriander servieren.
 
+## Varianten
+
 ## Hinweise
 
 - Bei 650 g Auberginen kann die Pfanne sehr voll werden. Lieber portionsweise anbraten, statt die Auberginen zu dämpfen.
@@ -130,3 +134,7 @@ Couscous auf die Teller verteilen, Gemüsepfanne daraufgeben und Halloumi darauf
 - Der Tofu soll kleiner und deutlich knuspriger sein als in der vorherigen Version.
 - Die Sauce enthält zusätzlich 1 TL Olivenöl; mehr ist nicht nötig.
 - Frischer Koriander wird erst am Ende verwendet.
+
+## Bewertung
+
+Geschmack: _**/ 5 · Konsistenz:**_ / 5 · Wiederkochen: \_\_\_ / 5
