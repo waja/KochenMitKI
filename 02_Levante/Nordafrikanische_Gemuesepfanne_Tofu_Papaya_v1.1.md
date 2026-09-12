@@ -144,6 +144,8 @@ Papaya-Salsa separat oder als Klecks daneben servieren. Mit gehackter Petersilie
 
 Nach Geschmack etwas Zitronenabrieb oder wenige Tropfen Zitronensaft darübergeben.
 
+## Varianten
+
 ## Hinweise
 
 - Der Tofu soll bewusst kleiner geschnitten und deutlich kräftiger gebraten werden als in der vorherigen Version.
@@ -151,3 +153,7 @@ Nach Geschmack etwas Zitronenabrieb oder wenige Tropfen Zitronensaft darübergeb
 - Die Papaya-Salsa nicht mitkochen: Der frische, süß-säuerliche Kontrast ist ein wichtiger Teil des Gerichts.
 - Basilikum passt hier weniger gut; Petersilie ist die bessere Kräuterwahl.
 - Das Fenchelgrün unbedingt verwenden – es bringt am Ende viel frisches Fenchelaroma.
+
+## Bewertung
+
+Geschmack: _**/ 5 · Konsistenz:**_ / 5 · Wiederkochen: \_\_\_ / 5

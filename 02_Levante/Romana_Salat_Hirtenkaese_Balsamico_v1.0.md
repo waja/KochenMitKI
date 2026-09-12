@@ -28,6 +28,7 @@ description: "Knackiger Gemüsesalat mit Hirtenkäse und cremigem Balsamico-Senf
 **Version:** 1.0  
 **Portionen:** 2 große Portionen als Beilage oder 1 große Portion als Hauptsalat  
 **Vorbereitung:** ca. 15 Min.  
+**Kochzeit:** ca. 0 Min.  
 **Gesamt:** ca. 15 Min.
 
 ## Zutaten
@@ -67,7 +68,9 @@ Lauchzwiebel in feine Ringe schneiden. Radicchio in schmale Streifen schneiden.
 
 Alles in eine große Schüssel geben.
 
-## Dressing
+## Zubereitung
+
+### 1. Dressing
 
 30–40 g Hirtenkäse in einer kleinen Schüssel mit einer Gabel möglichst fein zerdrücken.
 
@@ -75,11 +78,13 @@ Senf, Balsamicoessig, Balsamico-Crema und Wasser dazugeben und verrühren. Ansch
 
 Mit reichlich schwarzem Pfeffer würzen. Salz nur vorsichtig zugeben, da der Hirtenkäse bereits salzig ist.
 
-## Fertigstellen
+### 2. Fertigstellen
 
 Das Dressing erst kurz vor dem Servieren über den Salat geben und gründlich vermengen.
 
 Den restlichen Hirtenkäse grob zerbröseln und über den Salat geben.
+
+## Varianten
 
 ## Hinweise
 
@@ -88,3 +93,7 @@ Den restlichen Hirtenkäse grob zerbröseln und über den Salat geben.
 - Der Hirtenkäse im Dressing sorgt für mehr Körper und verbindet sich gut mit dem Balsamico.
 - Hüttenkäse passt grundsätzlich in Salat, ist für diese Kombination aber weniger passend als Hirtenkäse.
 - Besonders gut funktioniert der Salat als frischer Gegenpol zu würzigen, gerösteten Gerichten.
+
+## Bewertung
+
+Geschmack: _**/ 5 · Konsistenz:**_ / 5 · Wiederkochen: \_\_\_ / 5
