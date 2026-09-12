@@ -43,16 +43,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
-      - name: 🔤 Check spelling
-        uses: codespell-project/actions-codespell@8f01853be192eb0f849a5c7d721450e7a467c579 # v2.2
-        with:
-          skip: "*.pdf,*/*.md,index.md,README.md"
-          check_filenames: true
-  codespell2:
-    name: 🔤 Codespell
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
 
       - name: 🐍 Set up Python
         uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
@@ -60,29 +50,29 @@ jobs:
           python-version: "3.12"
 
       - name: 📦 Install codespell
-        run: pip install codespell
+        run: pip install -r .github/requirements-lint.txt
 
       - name: 🔤 Run codespell
         id: codespell
         run: |
           set +e
-          codespell > codespell-output.txt 2>&1
+          codespell --skip='*.pdf,*/*.md,index.md,README.md' > codespell-output.txt 2>&1
           echo "exit_code=$?" >> "$GITHUB_OUTPUT"
 
       - name: 📝 Write job summary
         if: always()
         run: |
           {
-            echo "## 🔤 Codespell-Ergebnis"
+            echo "## 🔤 Codespell Results"
             echo ""
             if [ -s codespell-output.txt ]; then
-              echo "❌ **Gefundene Rechtschreibfehler:**"
+              echo "❌ **Spelling issues found:**"
               echo ""
               echo '```text'
               cat codespell-output.txt
               echo '```'
             else
-              echo "✅ Keine Rechtschreibfehler gefunden."
+              echo "✅ No spelling issues found."
             fi
           } >> "$GITHUB_STEP_SUMMARY"
 
