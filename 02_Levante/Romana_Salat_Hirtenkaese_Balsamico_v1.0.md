@@ -20,6 +20,8 @@ total_time: "15 Minuten"
 description: "Knackiger Gemüsesalat mit Hirtenkäse und cremigem Balsamico-Senf-Dressing."
 ---
 
+<!-- markdownlint-disable-next-line MD025 -->
+
 # Knackiger Romana-Salat mit Hirtenkäse und Balsamico-Dressing
 
 **Kategorie:** Levante / Mediterran  
@@ -31,6 +33,7 @@ description: "Knackiger Gemüsesalat mit Hirtenkäse und cremigem Balsamico-Senf
 ## Zutaten
 
 ### Salat
+
 - 1 Mini-Romana
 - 1 Paprika
 - ½ Gurke
@@ -42,6 +45,7 @@ description: "Knackiger Gemüsesalat mit Hirtenkäse und cremigem Balsamico-Senf
 - 60–80 g Hirtenkäse
 
 ### Balsamico-Dressing
+
 - 3 EL Olivenöl
 - 1 EL Balsamicoessig
 - 1–1½ TL Balsamico-Crema

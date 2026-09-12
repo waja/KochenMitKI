@@ -1,0 +1,88 @@
+---
+name: Check and Preview
+
+on:
+  workflow_dispatch:
+  # execute on pull request event
+  pull_request:
+  push:
+    branches:
+      - $default-branch
+      - development
+      - master
+
+permissions:
+  contents: read
+
+jobs:
+  eslint:
+    name: 🧑‍💻 Super-Linter
+    runs-on: ubuntu-latest
+    # permissions needed to write a comment to the PR
+    permissions:
+      contents: read
+      issues: write
+      pull-requests: write
+      statuses: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          # super-linter needs the full git history to get the
+          # list of files that changed across commits
+          fetch-depth: 0
+          persist-credentials: false
+      - name: 📝 Lint Code Base
+        uses: super-linter/super-linter@4ce20838b8ab83717e78138c5b3a1407148e0918 # v8
+        env:
+          DEFAULT_BRANCH: ${{ github.event.pull_request.base.ref || 'development' }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VALIDATE_GITHUB_ACTIONS_ZIZMOR: false
+          VALIDATE_BIOME_FORMAT: false
+          VALIDATE_BIOME_LINT: false
+          VALIDATE_PYTHON_RUFF_FORMAT: false
+          VALIDATE_SPELL_CODESPELL: false
+  codespell:
+    name: 🔤 Codespell
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+        with:
+          python-version: "3.12"
+
+      - name: 📦 Install codespell
+        run: pip install -r .github/requirements-lint.txt
+
+      - name: 🔤 Run codespell
+        id: codespell
+        run: |
+          set +e
+          codespell --skip='*.pdf,*/*.md,index.md,README.md' > codespell-output.txt 2>&1
+          echo "exit_code=$?" >> "$GITHUB_OUTPUT"
+
+      - name: 📝 Write job summary
+        if: always()
+        run: |
+          {
+            echo "## 🔤 Codespell Results"
+            echo ""
+            if [ -s codespell-output.txt ]; then
+              echo "❌ **Spelling issues found:**"
+              echo ""
+              echo '```text'
+              cat codespell-output.txt
+              echo '```'
+            else
+              echo "✅ No spelling issues found."
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: ❌ Fail on findings
+        if: steps.codespell.outputs.exit_code != '0'
+        run: exit 1

@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
+"""Generate and update the cookbook README and recipe index."""
 
-from pathlib import Path
 import re
-
+from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -16,9 +16,8 @@ INDEX_START = "<!-- AUTO-GENERATED RECIPES: START -->"
 INDEX_END = "<!-- AUTO-GENERATED RECIPES: END -->"
 
 
-# Optional: Schöne Anzeigenamen für die Kategorieverzeichnisse.
-# Neue Kategorien werden automatisch erkannt; für sie wird der
-# Verzeichnisname automatisch in eine lesbare Bezeichnung umgewandelt.
+# Optional: Schönere Anzeigenamen für die Kategorieverzeichnisse.
+# Neue Kategorien werden automatisch erkannt.
 CATEGORY_LABELS = {
     "01_Indisch": "01 – Indisch",
     "02_Levante": "02 – Levante / Orientalisch",
@@ -28,18 +27,7 @@ CATEGORY_LABELS = {
 
 
 def category_name(directory: Path) -> str:
-    """
-    Erzeugt den Anzeigenamen einer Kategorie.
-
-    Bekannte Kategorien verwenden CATEGORY_LABELS.
-    Für neue Kategorien wird z. B.
-
-        05_Georgisch
-
-    zu
-
-        05 – Georgisch
-    """
+    """Return the display name for a recipe category directory."""
 
     if directory.name in CATEGORY_LABELS:
         return CATEGORY_LABELS[directory.name]
@@ -55,16 +43,7 @@ def category_name(directory: Path) -> str:
 
 
 def read_frontmatter(path: Path):
-    """
-    Liest title und description aus dem YAML-Frontmatter einer Markdown-Datei.
-
-    Erwartetes Format:
-
-        ---
-        title: ...
-        description: ...
-        ---
-    """
+    """Read title and description from a Markdown file's frontmatter."""
 
     text = path.read_text(encoding="utf-8")
 
@@ -97,11 +76,7 @@ def read_frontmatter(path: Path):
         return None
 
     title = title_match.group(1).strip()
-    description = (
-        description_match.group(1).strip()
-        if description_match
-        else ""
-    )
+    description = description_match.group(1).strip() if description_match else ""
 
     # Einfache Anführungszeichen entfernen.
     if len(title) >= 2 and title[0] == title[-1] and title[0] in "\"'":
@@ -118,9 +93,7 @@ def read_frontmatter(path: Path):
 
 
 def find_categories():
-    """
-    Findet alle nummerierten Kategorieverzeichnisse im Kochbuch.
-    """
+    """Find all numbered recipe category directories."""
 
     categories = [
         path
@@ -132,11 +105,7 @@ def find_categories():
 
 
 def find_recipes(category: Path):
-    """
-    Findet alle Markdown-Rezepte innerhalb einer Kategorie.
-
-    README.md und index.md werden ignoriert.
-    """
+    """Find all recipe Markdown files within a category."""
 
     return sorted(
         path
@@ -146,9 +115,7 @@ def find_recipes(category: Path):
 
 
 def generate_category_list(categories):
-    """
-    Erzeugt den automatisch generierten Kategorienbereich für README.md.
-    """
+    """Generate the automatically maintained category list."""
 
     lines = []
 
@@ -162,9 +129,7 @@ def generate_category_list(categories):
 
 
 def generate_recipe_list(categories):
-    """
-    Erzeugt den automatisch generierten Rezeptbereich für index.md.
-    """
+    """Generate the automatically maintained recipe list."""
 
     lines = []
 
@@ -184,7 +149,6 @@ def generate_recipe_list(categories):
                 continue
 
             title, description = metadata
-
             relative_path = recipe.relative_to(ROOT).as_posix()
 
             lines.append(f"- [{title}]({relative_path})")
@@ -203,59 +167,46 @@ def replace_generated_block(
     end_marker: str,
     generated_content: str,
 ) -> str:
-    """
-    Ersetzt ausschließlich den Bereich zwischen START und END.
-
-    Alles davor und danach bleibt unverändert.
-    """
+    """Replace only the content between two generated-section markers."""
 
     start = text.find(start_marker)
     end = text.find(end_marker)
 
     if start == -1 or end == -1:
         raise RuntimeError(
-            f"Marker nicht gefunden:\n"
+            "Marker nicht gefunden:\n"
             f"  START: {start_marker}\n"
             f"  END:   {end_marker}"
         )
 
     if end < start:
         raise RuntimeError(
-            f"Reihenfolge der Marker ist falsch:\n"
+            "Reihenfolge der Marker ist falsch:\n"  # codespell:ignore ist
             f"  START: {start_marker}\n"
             f"  END:   {end_marker}"
         )
 
     before = text[:start]
-    after = text[end + len(end_marker):]
+    after = text[end + len(end_marker) :]
 
     replacement = (
-        start_marker
-        + "\n\n"
-        + generated_content.rstrip()
-        + "\n\n"
-        + end_marker
+        start_marker + "\n\n" + generated_content.rstrip() + "\n\n" + end_marker
     )
 
     return before + replacement + after
 
 
 def update_index(categories):
-    """
-    Aktualisiert ausschließlich den automatisch generierten Rezeptbereich
-    in index.md.
-
-    Manuelle Inhalte oberhalb und unterhalb des Bereichs bleiben erhalten.
-    """
+    """Update only the generated recipe section in index.md."""
 
     if not INDEX.exists():
         raise RuntimeError(
             "index.md existiert nicht. "
-            "Bitte zunächst eine index.md mit den AUTO-GENERATED-Markern anlegen."
+            "Bitte zunächst eine index.md mit den "
+            "AUTO-GENERATED-Markern anlegen."
         )
 
     text = INDEX.read_text(encoding="utf-8")
-
     recipes = generate_recipe_list(categories)
 
     text = replace_generated_block(
@@ -269,21 +220,16 @@ def update_index(categories):
 
 
 def update_readme(categories):
-    """
-    Aktualisiert ausschließlich den automatisch generierten Kategorienbereich
-    in README.md.
-
-    Manuelle Inhalte außerhalb dieses Bereichs bleiben erhalten.
-    """
+    """Update only the generated category section in README.md."""
 
     if not README.exists():
         raise RuntimeError(
             "README.md existiert nicht. "
-            "Bitte zunächst eine README.md mit den AUTO-GENERATED-Markern anlegen."
+            "Bitte zunächst eine README.md mit den "
+            "AUTO-GENERATED-Markern anlegen."
         )
 
     text = README.read_text(encoding="utf-8")
-
     category_list = generate_category_list(categories)
 
     text = replace_generated_block(
@@ -297,12 +243,12 @@ def update_readme(categories):
 
 
 def main():
+    """Find categories and update the cookbook README and recipe index."""
+
     categories = find_categories()
 
     if not categories:
-        raise SystemExit(
-            "❌ Keine Kategorieverzeichnisse gefunden."
-        )
+        raise SystemExit("❌ Keine Kategorieverzeichnisse gefunden.")
 
     print("Gefundene Kategorien:")
 

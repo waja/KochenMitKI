@@ -20,7 +20,11 @@ total_time: "40 Minuten"
 description: "Würzige Gemüsepfanne mit Pak Choi, Aubergine, Zucchini, Ingwer und Sojasauce."
 ---
 
+<!-- markdownlint-disable-next-line MD025 -->
+
 # Pak Choi & Aubergine mit Ingwer
+
+<!-- markdownlint-disable-next-line MD036 -->
 
 **2 Portionen · Vorbereitung: ca. 15 Minuten · Kochzeit: ca. 25 Minuten · Gesamt: ca. 40 Minuten**
 
@@ -54,5 +58,4 @@ Mit Basmatireis servieren.
 
 ## Bewertung
 
-Geschmack: ___ / 5 · Konsistenz: ___ / 5 · Wiederkochen: ___ / 5
-
+Geschmack: _**/ 5 · Konsistenz:**_ / 5 · Wiederkochen: \_\_\_ / 5
