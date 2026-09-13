@@ -1,0 +1,50 @@
+name: Lint Frontmatter
+
+on:
+  push:
+    paths:
+      - '**/*.md'
+      - '.yamllint'
+      - '.github/workflows/lint-frontmatter.yml'
+  pull_request:
+    paths:
+      - '**/*.md'
+      - '.yamllint'
+      - '.github/workflows/lint-frontmatter.yml'
+  workflow_call:
+
+permissions:
+  contents: read
+
+jobs:
+  yamllint:
+    name: "📝 yamllint"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - name: Extract and lint frontmatter
+        run: |
+          set -euo pipefail
+          exit_code=0
+          while IFS= read -r file; do
+            # Skip files without frontmatter
+            head -1 "$file" | grep -q '^---$' || continue
+            # Extract frontmatter block (between first two '---' lines)
+            awk '/^---$/{c++; next} c==1' "$file" > /tmp/fm.yaml
+            # Lint
+            if ! yamllint -c .yamllint /tmp/fm.yaml; then
+              echo "::error file=$file::Invalid frontmatter in $file"
+              exit_code=1
+            fi
+          done < <(find . -type f -name '*.md' \
+            -not -path './.github/*' \
+            -not -path './dist/*' \
+            -not -path './00_Template/*' \
+            -not -path './tools/*' \
+            -not -name 'README.md' \
+            -not -name 'index.md' \
+            -not -name 'combined.md' \
+            -not -name '*.bak.md')
+          exit $exit_code
