@@ -114,8 +114,8 @@ fix-ruff:
 .PHONY: pylint
 pylint:
 	docker run --rm -v "$(CURDIR)":/workspace -w /workspace python:$(PYTHON_VERSION) bash -c \
-		"pip install --quiet pylint && \
-		 pylint \$$(find . -name '*.py' -not -path './.git/*')"
+		'pip install --quiet pylint && \
+		 pylint $$(find . -name "*.py" -not -path "./.git/*")'
 
 # ---------- Combined Fixes ----------
 
