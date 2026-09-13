@@ -15,9 +15,10 @@ Diese Rezepte sind Ergebnisse dieses Hobbies.
 
 <!-- AUTO-GENERATED CATEGORIES: START -->
 
+- [00 – Template](00_Template/)
 - [01 – Indisch](01_Indisch/)
 - [02 – Levante / Orientalisch](02_Levante/)
 - [03 – Asiatisch](03_Asiatisch/)
-- [04 – Italienisch](04_Italienisch/)
+- [04 – Mediterran](04_Mediterran/)
 
 <!-- AUTO-GENERATED CATEGORIES: END -->
