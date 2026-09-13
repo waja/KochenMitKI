@@ -1,1 +1,4 @@
 *.pdf
+dist/
+combined.md
+recipe_list.txt
