@@ -5,12 +5,15 @@
 NODE_VERSION=20
 # renovate: datasource=docker depName=python versioning=docker
 PYTHON_VERSION=3.12-slim
+# renovate: datasource=pypi depName=yamllint
+YAMLLINT_VERSION=1.35.1
 
 .PHONY: help
 help:
 	@echo "Targets:"
 	@echo "  make lint-md    - Check Markdown files (markdownlint, no --fix)"
 	@echo "  make fix-md     - Auto-fix Markdown files"
+	@echo "  make yamllint   - Check YAML frontmatter in recipe markdown files"
 	@echo "  make lint-text  - Check Markdown files with textlint"
 	@echo "  make fix-text   - Autofix Markdown files with textlint"
 	@echo "  make format     - Format all files with Prettier"
@@ -37,6 +40,27 @@ fix-md:
 	docker run --rm -v "$(CURDIR)":/workspace -w /workspace node:$(NODE_VERSION) bash -c \
 		"npm install -g markdownlint-cli -q && \
 		 markdownlint --fix '**/*.md' --ignore node_modules"
+
+# ---------- YAML: yamllint ----------
+.PHONY: yamllint
+yamllint:
+	docker run --rm -v "$(CURDIR)":/workspace -w /workspace python:$(PYTHON_VERSION) bash -c \
+		'pip install --quiet yamllint==$(YAMLLINT_VERSION) && \
+		 find . -type f -name "*.md" \
+		   -not -path "./.github/*" \
+		   -not -path "./dist/*" \
+		   -not -path "./tools/*" \
+		   -not -name "README.md" \
+		   -not -name "index.md" \
+		   -not -name "combined.md" \
+		   -not -name "*.bak.md" \
+		   -print0 \
+		 | while IFS= read -r -d "" file; do \
+		     head -1 "$$file" | grep -q "^---$$" || continue; \
+		     awk "/^---$$/{c++; next} c==1" "$$file" > /tmp/fm.yaml; \
+		     echo "Linting $$file"; \
+		     yamllint -c .yamllint /tmp/fm.yaml || exit 1; \
+		   done'
 
 # ---------- textlint ----------
 .PHONY: lint-text
@@ -125,7 +149,7 @@ fix: format fix-md fix-text fix-black fix-isort fix-ruff
 
 # ---------- Combined Tests ----------
 .PHONY: check
-check: check-fmt lint-md lint-text black flake8 isort ruff pylint
+check: check-fmt lint-md lint-text yamllint black flake8 isort ruff pylint
 	@echo "All checks passed."
 
 # ---------- Add new tools below this line ----------
