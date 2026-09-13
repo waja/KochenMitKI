@@ -1,0 +1,13 @@
+extends: default
+ignore: |
+  00_Template/
+  .github/
+  dist/
+  tools/
+rules:
+  line-length: disable
+  truthy:
+    allowed-values: ['true', 'false']
+  document-start:
+    present: true
+  document-end: present
