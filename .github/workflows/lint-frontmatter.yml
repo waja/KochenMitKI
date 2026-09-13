@@ -41,7 +41,6 @@ jobs:
           done < <(find . -type f -name '*.md' \
             -not -path './.github/*' \
             -not -path './dist/*' \
-            -not -path './00_Template/*' \
             -not -path './tools/*' \
             -not -name 'README.md' \
             -not -name 'index.md' \
