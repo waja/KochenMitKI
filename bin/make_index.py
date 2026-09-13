@@ -27,6 +27,8 @@ CATEGORY_LABELS = {
 
 # Verzeichnisse, die keine Rezeptkategorien sind.
 EXCLUDED_CATEGORIES = {"00_Template"}
+
+
 def category_name(directory: Path) -> str:
     """Return the display name for a recipe category directory."""
 
