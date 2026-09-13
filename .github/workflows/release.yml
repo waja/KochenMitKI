@@ -45,6 +45,7 @@ jobs:
             -not -path './bin/*' \
             -not -path './dist/*' \
             -not -path './00_Template/*' \
+            -not -path './tools/*' \
             -not -name 'README.md' \
             -not -name 'index.md' \
             -not -name 'combined.md' \
