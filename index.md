@@ -6,6 +6,11 @@ Vegetarische Rezeptsammlung · Version 1.0
 
 <!-- AUTO-GENERATED RECIPES: START -->
 
+### 00 – Template
+
+- [Rezeptname](00_Template/REZEPT_TEMPLATE.md)
+  Kurze, prägnante Beschreibung des Gerichts.
+
 ### 01 – Indisch
 
 - [Grüne Shakshuka](01_Indisch/Gruene_Shakshuka_v1.0.md)
@@ -36,10 +41,13 @@ Vegetarische Rezeptsammlung · Version 1.0
 - [Pak Choi & Aubergine mit Ingwer](03_Asiatisch/PakChoi_Aubergine_v1.0.md)
   Würzige Gemüsepfanne mit Pak Choi, Aubergine, Zucchini, Ingwer und Sojasauce.
 
-### 04 – Italienisch
+### 04 – Mediterran
 
-- [Rote-Bete-Risotto mit Gorgonzola & Walnüssen](04_Italienisch/Rote_Bete_Risotto_Gorgonzola_Walnuesse_v1.0.md)
+- [Rote-Bete-Risotto mit Gorgonzola & Walnüssen](04_Mediterran/Rote_Bete_Risotto_Gorgonzola_Walnuesse_v1.0.md)
   Cremiges Risotto mit erdiger Roter Bete, würzigem Gorgonzola und gerösteten Walnüssen.
+
+- [Zitroniges griechisches Schmorgemüse mit Aubergine, Sellerie, Rettich & Hirtenkäse](04_Mediterran/Zitroniges_griechisches_Schmorgemuese_Aubergine_Sellerie_Rettich_Hirtenkaese.md)
+  Saftiges griechisch inspiriertes Schmorgemüse mit kräftig gebratener Aubergine, Sellerie, Rettich, Paprika und Roter Bete in einer würzigen Tomaten-Zitronen-Sauce, dazu Hirtenkäse und Granatapfel.
 
 <!-- AUTO-GENERATED RECIPES: END -->
 
