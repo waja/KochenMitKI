@@ -1,4 +1,4 @@
-name: Create a release with changelog
+name: Create a release with changelog and PDFs
 
 on:
   push:
@@ -20,10 +20,97 @@ jobs:
       contents: write
       pull-requests: read
     steps:
-      #      - uses: release-drafter/release-drafter@b1476f6e6eb133afa41ed8589daba6dc69b4d3f5 # v6
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           persist-credentials: false
+
+      - name: Install Pandoc and LaTeX
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            pandoc \
+            texlive-latex-base \
+            texlive-fonts-recommended \
+            texlive-latex-extra \
+            texlive-xetex
+
+      - name: Collect recipes and build PDFs
+        run: |
+          set -euo pipefail
+
+          mkdir -p dist
+
+          find . -type f -name '*.md' \
+            -not -path './.github/*' \
+            -not -path './bin/*' \
+            -not -path './dist/*' \
+            -not -path './00_Template/*' \
+            -not -path './tools/*' \
+            -not -name 'README.md' \
+            -not -name 'index.md' \
+            -not -name 'combined.md' \
+            -not -name '*.bak.md' \
+            -print0 \
+            | sort -z \
+            | tr '\0' '\n' > recipe_list.txt
+
+          if [ ! -s recipe_list.txt ]; then
+            echo "No recipes found – aborting." >&2
+            exit 1
+          fi
+
+          # Build one PDF per recipe
+          while IFS= read -r file; do
+            base=$(basename "$file" .md)
+            ver=$(awk -F': *' '/^version:/ {gsub(/"/,"",$2); print $2; exit}' "$file")
+            ver=${ver:-unknown}
+            pandoc "$file" \
+              -o "dist/${base}.pdf" \
+              --pdf-engine=xelatex \
+              -V geometry:margin=2cm \
+              -V fontsize=11pt \
+              -V footer="Recipe version ${ver}" \
+              --toc --toc-depth=2
+          done < recipe_list.txt
+
+          # Build combined PDF with cover page
+          RELEASE_TAG="${GITHUB_REF_NAME:-manual}"
+          RELEASE_TAG_SAFE="${RELEASE_TAG//\//-}"
+          {
+            echo "---"
+            echo "title: \"KochenMitKI – Collection ${RELEASE_TAG}\""
+            echo "date: \"$(date +%Y-%m-%d)\""
+            echo "---"
+            echo ""
+            echo "Included recipe versions:"
+            echo ""
+            while IFS= read -r file; do
+              base=$(basename "$file" .md)
+              ver=$(awk -F': *' '/^version:/ {gsub(/"/,"",$2); print $2; exit}' "$file")
+              ver=${ver:-unknown}
+              echo "- ${base} (v${ver})"
+            done < recipe_list.txt
+            echo ""
+          } > combined.md
+
+          while IFS= read -r file; do
+            {
+              echo ""
+              awk 'NR==1 && $0=="---" { in_fm=1; next }
+                   in_fm && $0=="---" { in_fm=0; next }
+                   !in_fm' "$file"
+              echo ""
+            } >> combined.md
+          done < recipe_list.txt
+
+          pandoc combined.md \
+            -o "dist/KochenMitKI_${RELEASE_TAG_SAFE}.pdf" \
+            --pdf-engine=xelatex \
+            -V geometry:margin=2cm \
+            -V fontsize=11pt \
+            --toc --toc-depth=2
+
       - uses: softprops/action-gh-release@efb35369e0ad2afab669f228072c1b0d510eae64 # v3
         with:
           generate_release_notes: true
+          files: dist/*.pdf

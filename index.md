@@ -6,11 +6,6 @@ Vegetarische Rezeptsammlung · Version 1.0
 
 <!-- AUTO-GENERATED RECIPES: START -->
 
-### 00 – Template
-
-- [Rezeptname](00_Template/REZEPT_TEMPLATE.md)
-  Kurze, prägnante Beschreibung des Gerichts.
-
 ### 01 – Indisch
 
 - [Grüne Shakshuka](01_Indisch/Gruene_Shakshuka_v1.0.md)

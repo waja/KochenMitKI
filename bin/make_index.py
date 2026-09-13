@@ -22,8 +22,11 @@ CATEGORY_LABELS = {
     "01_Indisch": "01 – Indisch",
     "02_Levante": "02 – Levante / Orientalisch",
     "03_Asiatisch": "03 – Asiatisch",
-    "04_Italienisch": "04 – Italienisch",
+    "04_Mediterran": "04 – Mediterran",
 }
+
+# Verzeichnisse, die keine Rezeptkategorien sind.
+EXCLUDED_CATEGORIES = {"00_Template"}
 
 
 def category_name(directory: Path) -> str:
@@ -98,7 +101,9 @@ def find_categories():
     categories = [
         path
         for path in ROOT.iterdir()
-        if path.is_dir() and re.match(r"^\d+_", path.name)
+        if path.is_dir()
+        and re.match(r"^\d+_", path.name)
+        and path.name not in EXCLUDED_CATEGORIES
     ]
 
     return sorted(categories, key=lambda path: path.name)
