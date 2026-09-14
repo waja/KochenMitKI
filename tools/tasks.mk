@@ -63,7 +63,12 @@ yamllint:
 		   -not -name "*.bak.md" \
 		   -print0 \
 		 | while IFS= read -r -d "" file; do \
-		     head -1 "$$file" | grep -q "^---$$" || continue; \
+		     delims=$$(grep -c "^---$$" "$$file" || true); \
+		     [ "$$delims" -lt 1 ] && continue; \
+		     if [ "$$delims" -ne 2 ]; then \
+		       echo "FAIL $$file: expected 2 delimiters, found $$delims"; \
+		       exit 1; \
+		     fi; \
 		     awk "/^---$/{c++; print; next} c==1" "$file" > /tmp/fm.yaml; \
 		     echo "Linting $$file"; \
 		     yamllint -c .yamllint /tmp/fm.yaml || exit 1; \

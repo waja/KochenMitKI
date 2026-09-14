@@ -30,7 +30,13 @@ jobs:
           exit_code=0
           while IFS= read -r file; do
             # Skip files without frontmatter
-            head -1 "$file" | grep -q '^---$' || continue
+            delims=$(grep -c '^---$' "$file" || true)
+            [ "$delims" -lt 1 ] && continue
+            if [ "$delims" -ne 2 ]; then
+              echo "::error file=$file::Expected exactly two '---' delimiters, found $delims"
+              exit_code=1
+              continue
+            fi
             # Extract frontmatter block (between first two '---' lines)
             awk '/^---$/{c++; print; next} c==1' "$file" > /tmp/fm.yaml
             # Lint
