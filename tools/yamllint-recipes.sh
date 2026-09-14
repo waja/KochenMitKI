@@ -11,7 +11,7 @@ for file in "$@"; do
 
   awk '/^---$/{c++; print; next} c==1' "$file" > /tmp/fm.yaml
 
-  if ! yamllint -c /workspace/.yamllint /tmp/fm.yaml; then
+  if ! yamllint -c .yamllint /tmp/fm.yaml; then
     echo "FAIL $file: invalid frontmatter" >&2
     exit 1
   fi
