@@ -1,5 +1,5 @@
 # Tooling tasks – each target is self-contained (one tool, one container).
-
+SHELL := /bin/bash
 # Versions – managed by Renovate (see renovate.json)
 # renovate: datasource=docker depName=node versioning=docker
 NODE_VERSION=20
@@ -50,29 +50,16 @@ fix-md:
 .PHONY: yamllint
 yamllint:
 	docker run --rm -v "$(CURDIR)":/workspace -w /workspace python:$(PYTHON_VERSION) bash -c \
-		'pip install \
-		   $(PIP_FLAGS) \
-		   yamllint==$(YAMLLINT_VERSION) && \
-		 find . -type f -name "*.md" \
-		   -not -path "./.github/*" \
-		   -not -path "./dist/*" \
-		   -not -path "./tools/*" \
-		   -not -name "README.md" \
-		   -not -name "index.md" \
-		   -not -name "combined.md" \
-		   -not -name "*.bak.md" \
-		   -print0 \
-		 | while IFS= read -r -d "" file; do \
-		     delims=$$(grep -c "^---$$" "$$file" || true); \
-		     [ "$$delims" -lt 1 ] && continue; \
-		     if [ "$$delims" -ne 2 ]; then \
-		       echo "FAIL $$file: expected 2 delimiters, found $$delims"; \
-		       exit 1; \
-		     fi; \
-		     awk "/^---$/{c++; print; next} c==1" "$file" > /tmp/fm.yaml; \
-		     echo "Linting $$file"; \
-		     yamllint -c .yamllint /tmp/fm.yaml || exit 1; \
-		   done'
+		'pip install $(PIP_FLAGS) yamllint==$(YAMLLINT_VERSION) && \
+		 ./tools/yamllint-recipes.sh \
+		   $$(find . -type f -name "*.md" \
+		       -not -path "./.github/*" \
+		       -not -path "./dist/*" \
+		       -not -path "./tools/*" \
+		       -not -name "README.md" \
+		       -not -name "index.md" \
+		       -not -name "combined.md" \
+		       -not -name "*.bak.md")'
 
 # ---------- textlint ----------
 .PHONY: lint-text
