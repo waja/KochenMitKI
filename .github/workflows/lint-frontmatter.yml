@@ -32,7 +32,7 @@ jobs:
             # Skip files without frontmatter
             head -1 "$file" | grep -q '^---$' || continue
             # Extract frontmatter block (between first two '---' lines)
-            awk '/^---$/{c++; next} c==1' "$file" > /tmp/fm.yaml
+            awk '/^---$/{c++; print; next} c==1' "$file" > /tmp/fm.yaml
             # Lint
             if ! yamllint -c .yamllint /tmp/fm.yaml; then
               echo "::error file=$file::Invalid frontmatter in $file"

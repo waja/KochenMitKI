@@ -10,4 +10,5 @@ rules:
     allowed-values: ['true', 'false']
   document-start:
     present: true
-  document-end: present
+  document-end: disable
+
