@@ -3,14 +3,14 @@ name: Lint Frontmatter
 on:
   push:
     paths:
-      - '**/*.md'
-      - '.yamllint'
-      - '.github/workflows/lint-frontmatter.yml'
+      - "**/*.md"
+      - ".yamllint"
+      - ".github/workflows/lint-frontmatter.yml"
   pull_request:
     paths:
-      - '**/*.md'
-      - '.yamllint'
-      - '.github/workflows/lint-frontmatter.yml'
+      - "**/*.md"
+      - ".yamllint"
+      - ".github/workflows/lint-frontmatter.yml"
   workflow_call:
 
 permissions:
