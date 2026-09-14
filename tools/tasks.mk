@@ -45,7 +45,10 @@ fix-md:
 .PHONY: yamllint
 yamllint:
 	docker run --rm -v "$(CURDIR)":/workspace -w /workspace python:$(PYTHON_VERSION) bash -c \
-		'pip install --quiet yamllint==$(YAMLLINT_VERSION) && \
+		'pip install --quiet \
+		   --root-user-action=ignore \
+		   --disable-pip-version-check \
+		   yamllint==$(YAMLLINT_VERSION) && \
 		 find . -type f -name "*.md" \
 		   -not -path "./.github/*" \
 		   -not -path "./dist/*" \
