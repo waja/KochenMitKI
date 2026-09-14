@@ -28,6 +28,8 @@ help:
 	@echo "  make flake8     - Check Python files with flake8"
 	@echo "  make isort      - Check Python import order with isort"
 	@echo "  make fix-isort  - Auto-fix Python import order with isort"
+	@echo "  make shfmt      - Check shell scripts with shfmt"
+	@echo "  make fix-shfmt  - Format shell scripts with shfmt"
 	@echo "  make ruff       - Check Python files with ruff"
 	@echo "  make fix-ruff   - Auto-fix Python files with ruff"
 	@echo "  make pylint     - Check Python files with pylint"
@@ -45,6 +47,21 @@ fix-md:
 	docker run --rm -v "$(CURDIR)":/workspace -w /workspace node:$(NODE_VERSION) bash -c \
 		"npm install -g markdownlint-cli -q && \
 		 markdownlint --fix '**/*.md' --ignore node_modules"
+
+# ---------- Shell: shfmt ----------
+.PHONY: shfmt
+shfmt:
+	docker run --rm -v "$(CURDIR)":/workspace -w /workspace mvdan/shfmt:v3 \
+		-d -i 0 -ci $$(find . -type f -name "*.sh" \
+		    -not -path "./.git/*" \
+		    -not -path "./dist/*")
+
+.PHONY: fix-shfmt
+fix-shfmt:
+	docker run --rm -v "$(CURDIR)":/workspace -w /workspace mvdan/shfmt:v3 \
+		-w -i 0 -ci $$(find . -type f -name "*.sh" \
+		    -not -path "./.git/*" \
+		    -not -path "./dist/*")
 
 # ---------- YAML: yamllint ----------
 .PHONY: yamllint
@@ -143,12 +160,12 @@ pylint:
 # ---------- Combined Fixes ----------
 
 .PHONY: fix
-fix: format fix-md fix-text fix-black fix-isort fix-ruff
+fix: format fix-md fix-text fix-black fix-isort fix-ruff fix-shfmt
 	@echo "All fixes applied."
 
 # ---------- Combined Tests ----------
 .PHONY: check
-check: check-fmt lint-md lint-text yamllint black flake8 isort ruff pylint
+check: check-fmt lint-md lint-text yamllint shfmt black flake8 isort ruff pylint
 	@echo "All checks passed."
 
 # ---------- Add new tools below this line ----------
