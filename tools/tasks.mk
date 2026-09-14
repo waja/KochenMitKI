@@ -7,6 +7,11 @@ NODE_VERSION=20
 PYTHON_VERSION=3.12-slim
 # renovate: datasource=pypi depName=yamllint
 YAMLLINT_VERSION=1.35.1
+# Shared pip flags for all Python-based targets
+# --quiet                    : no progress bars
+# --root-user-action=ignore  : suppress the "running as root" warning
+# --disable-pip-version-check: suppress the "new pip available" notice
+PIP_FLAGS=--quiet --root-user-action=ignore --disable-pip-version-check
 
 .PHONY: help
 help:
@@ -45,9 +50,8 @@ fix-md:
 .PHONY: yamllint
 yamllint:
 	docker run --rm -v "$(CURDIR)":/workspace -w /workspace python:$(PYTHON_VERSION) bash -c \
-		'pip install --quiet \
-		   --root-user-action=ignore \
-		   --disable-pip-version-check \
+		'pip install \
+		   $(PIP_FLAGS) \
 		   yamllint==$(YAMLLINT_VERSION) && \
 		 find . -type f -name "*.md" \
 		   -not -path "./.github/*" \
@@ -95,53 +99,53 @@ check-fmt:
 .PHONY: black
 black:
 	docker run --rm -v "$(CURDIR)":/workspace -w /workspace python:$(PYTHON_VERSION) bash -c \
-		"pip install --quiet black && \
+		"pip install $(PIP_FLAGS) black && \
 		 black --check --diff ."
 
 .PHONY: fix-black
 fix-black:
 	docker run --rm -v "$(CURDIR)":/workspace -w /workspace python:$(PYTHON_VERSION) bash -c \
-		"pip install --quiet black && \
+		"pip install $(PIP_FLAGS) black && \
 		 black ."
 
 # ---------- Python: flake8 ----------
 .PHONY: flake8
 flake8:
 	docker run --rm -v "$(CURDIR)":/workspace -w /workspace python:$(PYTHON_VERSION) bash -c \
-		"pip install --quiet flake8 && \
+		"pip install $(PIP_FLAGS) flake8 && \
 		 flake8 ."
 
 # ---------- Python: isort ----------
 .PHONY: isort
 isort:
 	docker run --rm -v "$(CURDIR)":/workspace -w /workspace python:$(PYTHON_VERSION) bash -c \
-		"pip install --quiet isort && \
+		"pip install $(PIP_FLAGS) isort && \
 		 isort --check-only --diff ."
 
 .PHONY: fix-isort
 fix-isort:
 	docker run --rm -v "$(CURDIR)":/workspace -w /workspace python:$(PYTHON_VERSION) bash -c \
-		"pip install --quiet isort && \
+		"pip install $(PIP_FLAGS) isort && \
 		 isort ."
 
 # ---------- Python: ruff ----------
 .PHONY: ruff
 ruff:
 	docker run --rm -v "$(CURDIR)":/workspace -w /workspace python:$(PYTHON_VERSION) bash -c \
-		"pip install --quiet ruff && \
+		"pip install $(PIP_FLAGS) ruff && \
 		 ruff check ."
 
 .PHONY: fix-ruff
 fix-ruff:
 	docker run --rm -v "$(CURDIR)":/workspace -w /workspace python:$(PYTHON_VERSION) bash -c \
-		"pip install --quiet ruff && \
+		"pip install $(PIP_FLAGS) ruff && \
 		 ruff check --fix ."
 
 # ---------- Python: pylint ----------
 .PHONY: pylint
 pylint:
 	docker run --rm -v "$(CURDIR)":/workspace -w /workspace python:$(PYTHON_VERSION) bash -c \
-		'pip install --quiet pylint && \
+		'pip install $(PIP_FLAGS) pylint && \
 		 pylint $$(find . -name "*.py" -not -path "./.git/*")'
 
 # ---------- Combined Fixes ----------
