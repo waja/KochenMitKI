@@ -5,7 +5,7 @@
 NODE_VERSION=20
 # renovate: datasource=docker depName=python versioning=docker
 PYTHON_VERSION=3.12-slim
-# renovate: datasource=pypi depName=yamllint
+# renovate: datasource=pypi depName=yamllint versioning=pep440
 YAMLLINT_VERSION=1.35.1
 # Shared pip flags for all Python-based targets
 # --quiet                    : no progress bars
@@ -64,7 +64,7 @@ yamllint:
 		   -print0 \
 		 | while IFS= read -r -d "" file; do \
 		     head -1 "$$file" | grep -q "^---$$" || continue; \
-		     awk "/^---$$/{c++; next} c==1" "$$file" > /tmp/fm.yaml; \
+		     awk "/^---$/{c++; print; next} c==1" "$file" > /tmp/fm.yaml; \
 		     echo "Linting $$file"; \
 		     yamllint -c .yamllint /tmp/fm.yaml || exit 1; \
 		   done'
