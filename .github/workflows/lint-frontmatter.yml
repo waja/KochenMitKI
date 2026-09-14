@@ -24,6 +24,14 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           persist-credentials: false
+      - name: Read tool versions from tools/tasks.mk
+        id: versions
+        run: |
+          set -euo pipefail
+          ver=$(awk -F= '/^YAMLLINT_VERSION=/{print $2; exit}' tools/tasks.mk)
+          echo "yamllint=${ver}" >> "$GITHUB_OUTPUT"
+      - name: Install yamllint
+        run: python -m pip install "yamllint==${{ steps.versions.outputs.yamllint }}"
       - name: Extract and lint frontmatter
         run: |
           set -euo pipefail
