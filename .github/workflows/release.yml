@@ -12,9 +12,12 @@ permissions:
   contents: read
 
 jobs:
+  lint-frontmatter:
+    uses: ./.github/workflows/lint-frontmatter.yml
   publish_release:
     name: "📢 Publish Release"
     if: github.ref_type == 'tag'
+    needs: lint-frontmatter
     runs-on: ubuntu-latest
     permissions:
       contents: write

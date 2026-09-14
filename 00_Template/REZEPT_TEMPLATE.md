@@ -1,5 +1,4 @@
 ---
-<!-- markdownlint-disable MD060 -->
 title: "Rezeptname"
 version: "1.0"
 status: "erste Version"
@@ -32,7 +31,7 @@ allergens:
 leftover_friendly: false
 uses_leftovers: []
 
-source: "LLM-assistiert"
+source: "LLM-assistiert, Basis: TooGoodToGo-Tüte YYYY-MM-DD"
 ai_generated: true
 ai_model: ""
 based_on: []
@@ -44,6 +43,8 @@ notes: ""
 
 description: "Kurze, prägnante Beschreibung des Gerichts."
 ---
+
+<!-- markdownlint-disable MD060 -->
 
 # Rezeptname
 
@@ -94,4 +95,4 @@ _Eignet sich zum Einfrieren: ja / nein._
 
 ## Notizen
 
-`(Freitext – z. B. „Beim nächsten Mal weniger Chili)"`
+`(Freitext – z. B. „Beim nächsten Mal weniger Chili")`

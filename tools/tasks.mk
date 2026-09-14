@@ -1,16 +1,24 @@
 # Tooling tasks – each target is self-contained (one tool, one container).
-
+SHELL := /bin/bash
 # Versions – managed by Renovate (see renovate.json)
 # renovate: datasource=docker depName=node versioning=docker
 NODE_VERSION=20
 # renovate: datasource=docker depName=python versioning=docker
 PYTHON_VERSION=3.12-slim
+# renovate: datasource=pypi depName=yamllint versioning=pep440
+YAMLLINT_VERSION=1.35.1
+# Shared pip flags for all Python-based targets
+# --quiet                    : no progress bars
+# --root-user-action=ignore  : suppress the "running as root" warning
+# --disable-pip-version-check: suppress the "new pip available" notice
+PIP_FLAGS=--quiet --root-user-action=ignore --disable-pip-version-check
 
 .PHONY: help
 help:
 	@echo "Targets:"
 	@echo "  make lint-md    - Check Markdown files (markdownlint, no --fix)"
 	@echo "  make fix-md     - Auto-fix Markdown files"
+	@echo "  make yamllint   - Check YAML frontmatter in recipe markdown files"
 	@echo "  make lint-text  - Check Markdown files with textlint"
 	@echo "  make fix-text   - Autofix Markdown files with textlint"
 	@echo "  make format     - Format all files with Prettier"
@@ -20,6 +28,8 @@ help:
 	@echo "  make flake8     - Check Python files with flake8"
 	@echo "  make isort      - Check Python import order with isort"
 	@echo "  make fix-isort  - Auto-fix Python import order with isort"
+	@echo "  make shfmt      - Check shell scripts with shfmt"
+	@echo "  make fix-shfmt  - Format shell scripts with shfmt"
 	@echo "  make ruff       - Check Python files with ruff"
 	@echo "  make fix-ruff   - Auto-fix Python files with ruff"
 	@echo "  make pylint     - Check Python files with pylint"
@@ -37,6 +47,36 @@ fix-md:
 	docker run --rm -v "$(CURDIR)":/workspace -w /workspace node:$(NODE_VERSION) bash -c \
 		"npm install -g markdownlint-cli -q && \
 		 markdownlint --fix '**/*.md' --ignore node_modules"
+
+# ---------- Shell: shfmt ----------
+.PHONY: shfmt
+shfmt:
+	docker run --rm -v "$(CURDIR)":/workspace -w /workspace mvdan/shfmt:v3 \
+		-d -i 0 -ci $$(find . -type f -name "*.sh" \
+		    -not -path "./.git/*" \
+		    -not -path "./dist/*")
+
+.PHONY: fix-shfmt
+fix-shfmt:
+	docker run --rm -v "$(CURDIR)":/workspace -w /workspace mvdan/shfmt:v3 \
+		-w -i 0 -ci $$(find . -type f -name "*.sh" \
+		    -not -path "./.git/*" \
+		    -not -path "./dist/*")
+
+# ---------- YAML: yamllint ----------
+.PHONY: yamllint
+yamllint:
+	docker run --rm -v "$(CURDIR)":/workspace -w /workspace python:$(PYTHON_VERSION) bash -c \
+		'pip install $(PIP_FLAGS) yamllint==$(YAMLLINT_VERSION) && \
+		 ./tools/yamllint-recipes.sh \
+		   $$(find . -type f -name "*.md" \
+		       -not -path "./.github/*" \
+		       -not -path "./dist/*" \
+		       -not -path "./tools/*" \
+		       -not -name "README.md" \
+		       -not -name "index.md" \
+		       -not -name "combined.md" \
+		       -not -name "*.bak.md")'
 
 # ---------- textlint ----------
 .PHONY: lint-text
@@ -68,64 +108,64 @@ check-fmt:
 .PHONY: black
 black:
 	docker run --rm -v "$(CURDIR)":/workspace -w /workspace python:$(PYTHON_VERSION) bash -c \
-		"pip install --quiet black && \
+		"pip install $(PIP_FLAGS) black && \
 		 black --check --diff ."
 
 .PHONY: fix-black
 fix-black:
 	docker run --rm -v "$(CURDIR)":/workspace -w /workspace python:$(PYTHON_VERSION) bash -c \
-		"pip install --quiet black && \
+		"pip install $(PIP_FLAGS) black && \
 		 black ."
 
 # ---------- Python: flake8 ----------
 .PHONY: flake8
 flake8:
 	docker run --rm -v "$(CURDIR)":/workspace -w /workspace python:$(PYTHON_VERSION) bash -c \
-		"pip install --quiet flake8 && \
+		"pip install $(PIP_FLAGS) flake8 && \
 		 flake8 ."
 
 # ---------- Python: isort ----------
 .PHONY: isort
 isort:
 	docker run --rm -v "$(CURDIR)":/workspace -w /workspace python:$(PYTHON_VERSION) bash -c \
-		"pip install --quiet isort && \
+		"pip install $(PIP_FLAGS) isort && \
 		 isort --check-only --diff ."
 
 .PHONY: fix-isort
 fix-isort:
 	docker run --rm -v "$(CURDIR)":/workspace -w /workspace python:$(PYTHON_VERSION) bash -c \
-		"pip install --quiet isort && \
+		"pip install $(PIP_FLAGS) isort && \
 		 isort ."
 
 # ---------- Python: ruff ----------
 .PHONY: ruff
 ruff:
 	docker run --rm -v "$(CURDIR)":/workspace -w /workspace python:$(PYTHON_VERSION) bash -c \
-		"pip install --quiet ruff && \
+		"pip install $(PIP_FLAGS) ruff && \
 		 ruff check ."
 
 .PHONY: fix-ruff
 fix-ruff:
 	docker run --rm -v "$(CURDIR)":/workspace -w /workspace python:$(PYTHON_VERSION) bash -c \
-		"pip install --quiet ruff && \
+		"pip install $(PIP_FLAGS) ruff && \
 		 ruff check --fix ."
 
 # ---------- Python: pylint ----------
 .PHONY: pylint
 pylint:
 	docker run --rm -v "$(CURDIR)":/workspace -w /workspace python:$(PYTHON_VERSION) bash -c \
-		'pip install --quiet pylint && \
+		'pip install $(PIP_FLAGS) pylint && \
 		 pylint $$(find . -name "*.py" -not -path "./.git/*")'
 
 # ---------- Combined Fixes ----------
 
 .PHONY: fix
-fix: format fix-md fix-text fix-black fix-isort fix-ruff
+fix: format fix-md fix-text fix-black fix-isort fix-ruff fix-shfmt
 	@echo "All fixes applied."
 
 # ---------- Combined Tests ----------
 .PHONY: check
-check: check-fmt lint-md lint-text black flake8 isort ruff pylint
+check: check-fmt lint-md lint-text yamllint shfmt black flake8 isort ruff pylint
 	@echo "All checks passed."
 
 # ---------- Add new tools below this line ----------

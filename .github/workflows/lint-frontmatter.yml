@@ -1,0 +1,51 @@
+name: Lint Frontmatter
+
+on:
+  push:
+    paths:
+      - "**/*.md"
+      - ".yamllint"
+      - ".github/workflows/lint-frontmatter.yml"
+      - "tools/yamllint-recipes.sh"
+  pull_request:
+    paths:
+      - "**/*.md"
+      - ".yamllint"
+      - ".github/workflows/lint-frontmatter.yml"
+      - "tools/yamllint-recipes.sh"
+  workflow_call:
+
+permissions:
+  contents: read
+
+jobs:
+  yamllint:
+    name: "📝 yamllint"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+
+      - name: Read tool versions from tools/tasks.mk
+        id: versions
+        run: |
+          set -euo pipefail
+          ver=$(awk -F= '/^YAMLLINT_VERSION=/{print $2; exit}' tools/tasks.mk)
+          echo "yamllint=${ver}" >> "$GITHUB_OUTPUT"
+
+      - name: Install yamllint
+        run: python -m pip install "yamllint==${{ steps.versions.outputs.yamllint }}"
+
+      - name: Lint recipe frontmatter
+        run: |
+          set -euo pipefail
+          mapfile -t files < <(find . -type f -name '*.md' \
+            -not -path './.github/*' \
+            -not -path './dist/*' \
+            -not -path './tools/*' \
+            -not -name 'README.md' \
+            -not -name 'index.md' \
+            -not -name 'combined.md' \
+            -not -name '*.bak.md')
+          ./tools/yamllint-recipes.sh "${files[@]}"
