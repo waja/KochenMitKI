@@ -41,6 +41,7 @@ jobs:
           VALIDATE_BIOME_LINT: false
           VALIDATE_PYTHON_RUFF_FORMAT: false
           VALIDATE_SPELL_CODESPELL: false
+          JSCPD_CONFIG_FILE: .jscpd.json
   codespell:
     name: 🔤 Codespell
     runs-on: ubuntu-latest
