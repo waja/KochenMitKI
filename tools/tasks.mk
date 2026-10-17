@@ -6,7 +6,7 @@ NODE_VERSION=24
 # renovate: datasource=docker depName=python versioning=docker
 PYTHON_VERSION=3.15-slim
 # renovate: datasource=pypi depName=yamllint versioning=pep440
-YAMLLINT_VERSION=1.35.1
+YAMLLINT_VERSION=1.38.0
 # Shared pip flags for all Python-based targets
 # --quiet                    : no progress bars
 # --root-user-action=ignore  : suppress the "running as root" warning
