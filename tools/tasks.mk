@@ -4,7 +4,7 @@ SHELL := /bin/bash
 # renovate: datasource=docker depName=node versioning=docker
 NODE_VERSION=24
 # renovate: datasource=docker depName=python versioning=docker
-PYTHON_VERSION=3.12-slim
+PYTHON_VERSION=3.15-slim
 # renovate: datasource=pypi depName=yamllint versioning=pep440
 YAMLLINT_VERSION=1.35.1
 # Shared pip flags for all Python-based targets
