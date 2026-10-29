@@ -1,3 +1,7 @@
+---
+path: AGENTS.md
+---
+
 # Repository guidance
 
 ## Linting and validation
