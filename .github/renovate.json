@@ -25,5 +25,7 @@
       "matchDatasources": ["docker"],
       "groupName": "container base images"
     }
-  ]
+  ],
+  "automerge": true,
+  "platformAutomerge": true
 }
