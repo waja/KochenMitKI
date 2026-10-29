@@ -62,7 +62,7 @@ shfmt:
 
 .PHONY: fix-shfmt
 fix-shfmt:
-	docker run --rm -v "$(CURDIR)":/workspace -w /workspace mvdan/shfmt:v3 \
+	docker run --rm -v "$(CURDIR)":/workspace -w /workspace mvdan/shfmt:$(SHFMT_VERSION) \
 		-w -i 0 -ci $$(find . -type f -name "*.sh" \
 		    -not -path "./.git/*" \
 		    -not -path "./dist/*")
@@ -105,7 +105,7 @@ format:
 .PHONY: check-fmt
 check-fmt:
 	docker run --rm -v "$(CURDIR)":/workspace -w /workspace node:$(NODE_VERSION) bash -c \
-		"npm install -g prettier@3.8.4 -q && \
+		"npm install -g prettier@$(PRETTIER_VERSION) -q && \
 		 prettier --check ."
 
 # ---------- Python: black ----------
