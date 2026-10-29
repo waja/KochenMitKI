@@ -1,24 +1,13 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:recommended",
-    ":dependencyDashboard"
-  ],
-  "baseBranchPatterns": [
-    "development"
-  ],
-  "assignees": [
-    "waja"
-  ],
-  "reviewers": [
-    "waja"
-  ],
+  "extends": ["config:recommended", ":dependencyDashboard"],
+  "baseBranchPatterns": ["development"],
+  "assignees": ["waja"],
+  "reviewers": ["waja"],
   "customManagers": [
     {
       "customType": "regex",
-      "managerFilePatterns": [
-        "/tools/tasks\\.mk$/"
-      ],
+      "managerFilePatterns": ["/tools/tasks\\.mk$/"],
       "matchStrings": [
         "# renovate: datasource=(?<datasource>\\S+) depName=(?<depName>\\S+) versioning=(?<versioning>\\S+)\\s*\\n\\w+_VERSION=(?<currentValue>\\S+)"
       ],
@@ -27,21 +16,13 @@
   ],
   "packageRules": [
     {
-      "matchDatasources": [
-        "docker"
-      ],
-      "matchPackageNames": [
-        "python"
-      ],
-      "matchUpdateTypes": [
-        "major"
-      ],
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["python"],
+      "matchUpdateTypes": ["major"],
       "enabled": false
     },
     {
-      "matchDatasources": [
-        "docker"
-      ],
+      "matchDatasources": ["docker"],
       "groupName": "container base images"
     }
   ],
