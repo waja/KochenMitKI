@@ -7,6 +7,8 @@ NODE_VERSION=24
 PYTHON_VERSION=3.15-slim
 # renovate: datasource=pypi depName=yamllint versioning=pep440
 YAMLLINT_VERSION=1.38.0
+# renovate: datasource=npm depName=prettier versioning=semver
+PRETTIER_VERSION=3.8.4
 # Shared pip flags for all Python-based targets
 # --quiet                    : no progress bars
 # --root-user-action=ignore  : suppress the "running as root" warning
@@ -95,13 +97,13 @@ fix-text:
 .PHONY: format
 format:
 	docker run --rm -v "$(CURDIR)":/workspace -w /workspace node:$(NODE_VERSION) bash -c \
-		"npm install -g prettier@3.8.4 -q && \
+		"npm install -g prettier@$(PRETTIER_VERSION) -q && \
 		 prettier --write ."
 
 .PHONY: check-fmt
 check-fmt:
 	docker run --rm -v "$(CURDIR)":/workspace -w /workspace node:$(NODE_VERSION) bash -c \
-		"npm install -g prettier@3.8.4 -q && \
+		"npm install -g prettier@$(PRETTIER_VERSION) -q && \
 		 prettier --check ."
 
 # ---------- Python: black ----------
