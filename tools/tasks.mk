@@ -10,7 +10,7 @@ YAMLLINT_VERSION=1.38.0
 # renovate: datasource=npm depName=prettier versioning=semver
 PRETTIER_VERSION=3.8.4
 # renovate: datasource=docker depName=mvdan/shfmt versioning=docker
-SHFMT_VERSION=v3
+SHFMT_VERSION=v3.14.1
 # Shared pip flags for all Python-based targets
 # --quiet                    : no progress bars
 # --root-user-action=ignore  : suppress the "running as root" warning
