@@ -2,7 +2,7 @@
 SHELL := /bin/bash
 # Versions – managed by Renovate (see renovate.json)
 # renovate: datasource=docker depName=node versioning=docker
-NODE_VERSION=24
+NODE_VERSION=26
 # renovate: datasource=docker depName=python versioning=docker
 PYTHON_VERSION=3.15-slim
 # renovate: datasource=pypi depName=yamllint versioning=pep440
