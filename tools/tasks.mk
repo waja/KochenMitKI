@@ -7,6 +7,10 @@ NODE_VERSION=24
 PYTHON_VERSION=3.15-slim
 # renovate: datasource=pypi depName=yamllint versioning=pep440
 YAMLLINT_VERSION=1.38.0
+# renovate: datasource=npm depName=prettier versioning=semver
+PRETTIER_VERSION=3.8.4
+# renovate: datasource=docker depName=mvdan/shfmt versioning=docker
+SHFMT_VERSION=v3.14.1
 # Shared pip flags for all Python-based targets
 # --quiet                    : no progress bars
 # --root-user-action=ignore  : suppress the "running as root" warning
@@ -51,14 +55,14 @@ fix-md:
 # ---------- Shell: shfmt ----------
 .PHONY: shfmt
 shfmt:
-	docker run --rm -v "$(CURDIR)":/workspace -w /workspace mvdan/shfmt:v3 \
+	docker run --rm -v "$(CURDIR)":/workspace -w /workspace mvdan/shfmt:$(SHFMT_VERSION) \
 		-d -i 0 -ci $$(find . -type f -name "*.sh" \
 		    -not -path "./.git/*" \
 		    -not -path "./dist/*")
 
 .PHONY: fix-shfmt
 fix-shfmt:
-	docker run --rm -v "$(CURDIR)":/workspace -w /workspace mvdan/shfmt:v3 \
+	docker run --rm -v "$(CURDIR)":/workspace -w /workspace mvdan/shfmt:$(SHFMT_VERSION) \
 		-w -i 0 -ci $$(find . -type f -name "*.sh" \
 		    -not -path "./.git/*" \
 		    -not -path "./dist/*")
@@ -95,13 +99,13 @@ fix-text:
 .PHONY: format
 format:
 	docker run --rm -v "$(CURDIR)":/workspace -w /workspace node:$(NODE_VERSION) bash -c \
-		"npm install -g prettier@3.8.4 -q && \
+		"npm install -g prettier@$(PRETTIER_VERSION) -q && \
 		 prettier --write ."
 
 .PHONY: check-fmt
 check-fmt:
 	docker run --rm -v "$(CURDIR)":/workspace -w /workspace node:$(NODE_VERSION) bash -c \
-		"npm install -g prettier@3.8.4 -q && \
+		"npm install -g prettier@$(PRETTIER_VERSION) -q && \
 		 prettier --check ."
 
 # ---------- Python: black ----------
